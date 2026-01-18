@@ -29,6 +29,3 @@ jobs:
           build-args: |
             VITE_LASTFM_API_KEY=${{ secrets.VITE_LASTFM_API_KEY }}
             VITE_LASTFM_USERNAME=${{ secrets.VITE_LASTFM_USERNAME }}
-
-      - name: Trigger Azure to pull new image
-        run: curl -X POST "${{ secrets.AZURE_WEBHOOK_URL }}"
