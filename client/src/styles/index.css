@@ -626,6 +626,23 @@ a {
   }
 }
 
+/* 404 page */
+.not-found {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.not-found h1 {
+  font-size: 6rem;
+  color: #2a2a2a;
+  margin-bottom: 0.5rem;
+}
+
+.not-found p {
+  color: #888;
+  margin-bottom: 2rem;
+}
+
 .favorites-list {
   list-style: none;
   display: flex;
