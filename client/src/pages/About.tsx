@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const skills = ['C#', 'Python', 'React', '.NET', 'Docker', 'Git', 'AWS', 'Linux'];
+const skills = ['C#', 'Python', 'React', '.NET', 'Docker', 'Git', 'AWS/Azure', 'Linux'];
 
 const About = () => {
     return (
