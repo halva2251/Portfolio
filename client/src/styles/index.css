@@ -55,6 +55,83 @@ a {
   color: #fff;
 }
 
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #e0e0e0;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #e0e0e0;
+  left: 0;
+  transition: transform 0.2s;
+}
+
+.hamburger::before {
+  top: -7px;
+}
+
+.hamburger::after {
+  top: 7px;
+}
+
+.hamburger.open {
+  background-color: transparent;
+}
+
+.hamburger.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger.open::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+@media (max-width: 600px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1a1a1a;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar {
+    position: relative;
+  }
+}
+
 /* Main container */
 .container {
   max-width: 1000px;
