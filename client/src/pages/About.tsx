@@ -49,7 +49,7 @@ const About = () => {
               {s}
               {s === "Linux" && (
                 <span className="text-accent italic text-xs ml-1">
-                  (yes, I'm that guy)
+                  (yes im running it on my main PC, I'm that guy)
                 </span>
               )}
             </span>
