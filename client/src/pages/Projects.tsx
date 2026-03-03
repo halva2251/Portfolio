@@ -2,7 +2,7 @@ const projects = [
   {
     name: "SongSwap",
     description:
-      "Full-stack music discovery app — submit a song, get one back from a stranger. Features themed chains, mood context, and JWT auth.",
+      "Full-stack music discovery app built from scratch to learn Go — submit a song, get one back from a stranger. Features themed chains, mood context, JWT auth, and PostgreSQL.",
     tech: ["Go", "React", "TypeScript", "PostgreSQL", "JWT"],
     github: "https://github.com/halva2251/songswap",
     type: "Personal",

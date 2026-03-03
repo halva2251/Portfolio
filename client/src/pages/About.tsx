@@ -32,7 +32,7 @@ const About = () => {
           Software Development.
         </p>
         <p className="text-text-secondary leading-relaxed">
-          I enjoy coding and learning new things — whether that's new
+          I enjoy coding and learning new things. Whether that's new
           technologies, video games, TV shows, philosophy, or exploring new
           genres of music. Curiosity keeps me going.
         </p>
@@ -61,10 +61,16 @@ const About = () => {
         <h2 className="font-mono text-lg font-semibold mb-3">
           Currently Learning
         </h2>
+        <p className="text-text-secondary leading-relaxed mb-3">
+          Teaching myself <span className="text-text-primary">Go</span> by
+          building a full-stack app from scratch — there's no better way to
+          learn a language than shipping something real with it. Also attending
+          an optional robotics class at school (it's actually really fun) and
+          working through Cisco Cybersecurity courses online.
+        </p>
         <p className="text-text-secondary leading-relaxed">
-          Attending an optional robotics class at school — it's actually really
-          fun. Also working through Cisco Cybersecurity courses online. Always
-          expanding the toolkit.
+          Next up: diving into public cloud infrastructure and CI/CD pipelines
+          as part of coursework. Always expanding the toolkit.
         </p>
       </section>
 

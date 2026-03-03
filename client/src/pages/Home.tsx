@@ -127,7 +127,7 @@ const Home = () => {
         >
           <span>📍 Baden, Switzerland</span>
           <span>🎓 CS Student</span>
-          <span>🔧 C# / React / Go</span>
+          <span>🔧 C# / Go / React / TypeScript</span>
         </div>
       </div>
     </div>
