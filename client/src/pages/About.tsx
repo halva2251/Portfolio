@@ -63,9 +63,9 @@ const About = () => {
         </h2>
         <p className="text-text-secondary leading-relaxed mb-3">
           Teaching myself <span className="text-text-primary">Go</span> by
-          building a full-stack app from scratch — there's no better way to
-          learn a language than shipping something real with it. Also attending
-          an optional robotics class at school (it's actually really fun) and
+          building a full-stack app from scratch. There's no better way to learn
+          a language than shipping something real with it. Also attending an
+          optional robotics class at school (it's actually really fun) and
           working through Cisco Cybersecurity courses online.
         </p>
         <p className="text-text-secondary leading-relaxed">
