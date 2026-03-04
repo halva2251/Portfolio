@@ -49,3 +49,4 @@ coverage/
 *.cache
 .parcel-cache/
 .turbo/
+.vercel
