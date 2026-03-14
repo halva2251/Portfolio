@@ -1,134 +1,92 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-const useTyping = (text: string, speed = 50, startDelay = 0) => {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    setDisplayed("");
-    setDone(false);
-    let i = 0;
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        if (i < text.length) {
-          setDisplayed(text.slice(0, i + 1));
-          i++;
-        } else {
-          setDone(true);
-          clearInterval(interval);
-        }
-      }, speed);
-    }, startDelay);
-    return () => clearTimeout(timeout);
-  }, [text, speed, startDelay]);
-
-  return { displayed, done };
-};
-
-const Cursor = () => (
-  <span className="text-accent animate-[blink_1s_infinite]">▊</span>
-);
+import { getRecentTracks, type Track } from "../services/lastfmService";
 
 const Home = () => {
-  const line1 = useTyping("Yevhenii Sauliak", 50, 400);
-  const line2 = useTyping('aka "Yen"', 60, 1400);
-  const line3 = useTyping(
-    "CS student & developer. Turning complex problems into clean, practical software.",
-    20,
-    2200,
-  );
-  const [showCta, setShowCta] = useState(false);
+  const [track, setTrack] = useState<Track | null>(null);
 
   useEffect(() => {
-    if (line3.done) {
-      const t = setTimeout(() => setShowCta(true), 400);
-      return () => clearTimeout(t);
-    }
-  }, [line3.done]);
+    getRecentTracks(1)
+      .then((tracks) => setTrack(tracks[0] || null))
+      .catch(console.error);
+  }, []);
 
   return (
-    <div className="flex-1 flex items-center justify-center">
-      <div className="max-w-2xl w-full">
-        {/* Terminal window */}
-        <div className="bg-surface-raised/60 border border-surface-border rounded-xl overflow-hidden backdrop-blur-sm">
-          {/* Title bar */}
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-surface-border">
-            <div className="w-3 h-3 rounded-full bg-red-500" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500" />
-            <div className="w-3 h-3 rounded-full bg-green-500" />
-            <span className="ml-2 font-mono text-xs text-text-muted">
-              ~/portfolio
+    <div className="flex-1 flex flex-col justify-center">
+      {/* Availability */}
+      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 mb-6 self-start">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+        </span>
+        <span className="font-mono text-xs text-green-400">
+          Open to apprenticeships — 2027
+        </span>
+      </div>
+
+      {/* Name */}
+      <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-text-primary mb-2">
+        Yevhenii Sauliak
+      </h1>
+      <p className="text-text-muted text-lg mb-6">
+        aka <span className="text-text-secondary">"Yen"</span> or{" "}
+        <span className="text-text-secondary">"halva"</span> online
+      </p>
+
+      {/* Subtitle */}
+      <p className="text-xl text-text-secondary max-w-xl leading-relaxed mb-10">
+        CS student in Switzerland who builds things to learn how they work.
+        Currently into Go, React, and self-deployment.
+      </p>
+
+      {/* Currently */}
+      <div className="flex flex-wrap gap-3 mb-10">
+        <div className="px-4 py-2.5 rounded-lg bg-surface-raised/60 border border-surface-border">
+          <span className="block font-mono text-[0.6rem] uppercase tracking-widest text-text-muted mb-0.5">
+            Building
+          </span>
+          <span className="text-sm text-text-primary">
+            SongSwap on Raspberry Pi
+          </span>
+        </div>
+        <div className="px-4 py-2.5 rounded-lg bg-surface-raised/60 border border-surface-border">
+          <span className="block font-mono text-[0.6rem] uppercase tracking-widest text-text-muted mb-0.5">
+            Learning
+          </span>
+          <span className="text-sm text-text-primary">Cloud infra & CI/CD</span>
+        </div>
+        {track && (
+          <a
+            href={track.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2.5 rounded-lg bg-surface-raised/60 border border-surface-border hover:border-accent transition-colors group"
+          >
+            <span className="block font-mono text-[0.6rem] uppercase tracking-widest text-text-muted mb-0.5">
+              {track.nowPlaying ? "♫ Listening" : "♫ Last played"}
             </span>
-          </div>
+            <span className="text-sm text-text-primary group-hover:text-accent transition-colors">
+              {track.name}
+              <span className="text-text-muted"> — {track.artist}</span>
+            </span>
+          </a>
+        )}
+      </div>
 
-          {/* Terminal body */}
-          <div className="p-6 font-mono text-sm leading-relaxed">
-            <div>
-              <span className="text-accent">→</span>{" "}
-              <span className="text-green-400">whoami</span>
-            </div>
-            <div className="text-3xl font-bold text-text-primary my-1">
-              {line1.displayed}
-              {!line1.done && <Cursor />}
-            </div>
-
-            {line1.done && (
-              <div className="text-text-secondary mb-2">
-                {line2.displayed}
-                {!line2.done && <Cursor />}
-              </div>
-            )}
-
-            {line2.done && (
-              <>
-                <div className="h-3" />
-                <div>
-                  <span className="text-accent">→</span>{" "}
-                  <span className="text-green-400">cat about.txt</span>
-                </div>
-                <div className="text-text-secondary max-w-lg">
-                  {line3.displayed}
-                  {!line3.done && <Cursor />}
-                </div>
-              </>
-            )}
-
-            {line3.done && (
-              <div className="mt-3 text-text-muted">
-                <span className="text-accent">→</span> Curious by default,
-                builder by choice. Always iterating.
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div
-          className={`flex gap-4 mt-8 transition-all duration-700 ${showCta ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+      {/* CTAs */}
+      <div className="flex gap-4">
+        <Link
+          to="/projects"
+          className="px-6 py-3 bg-accent text-surface font-mono text-sm font-semibold rounded-lg hover:bg-accent-hover transition-colors"
         >
-          <Link
-            to="/projects"
-            className="px-6 py-3 bg-accent text-surface font-mono text-sm font-semibold rounded-lg hover:bg-accent-hover transition-colors"
-          >
-            View Projects →
-          </Link>
-          <Link
-            to="/contact"
-            className="px-6 py-3 border border-surface-border text-text-secondary font-mono text-sm rounded-lg hover:border-accent hover:text-accent transition-colors"
-          >
-            Get in Touch
-          </Link>
-        </div>
-
-        {/* Status */}
-        <div
-          className={`flex gap-6 mt-8 font-mono text-xs text-text-muted transition-all duration-700 delay-200 ${showCta ? "opacity-100" : "opacity-0"}`}
+          View Projects
+        </Link>
+        <Link
+          to="/about"
+          className="px-6 py-3 border border-surface-border text-text-secondary font-mono text-sm rounded-lg hover:border-accent hover:text-accent transition-colors"
         >
-          <span>📍 Baden, Switzerland</span>
-          <span>🎓 CS Student</span>
-          <span>🔧 C# / Go / React / TypeScript</span>
-        </div>
+          About Me
+        </Link>
       </div>
     </div>
   );
