@@ -48,7 +48,7 @@ const Home = () => {
   }, [line3.done]);
 
   return (
-    <div className="min-h-[80vh] flex items-center">
+    <div className="flex-1 flex items-center justify-center">
       <div className="max-w-2xl w-full">
         {/* Terminal window */}
         <div className="bg-surface-raised/60 border border-surface-border rounded-xl overflow-hidden backdrop-blur-sm">
