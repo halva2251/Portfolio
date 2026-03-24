@@ -17,11 +17,11 @@ const skills = [
 const About = () => {
   return (
     <div>
-      <h1 className="font-mono text-3xl font-bold mb-6">About Me</h1>
+      <h1 className="font-serif text-5xl italic mb-10">About Me</h1>
 
       {/* The origin story */}
-      <section className="mb-8">
-        <p className="text-text-secondary leading-relaxed mb-3">
+      <section className="mb-10">
+        <p className="text-text-secondary leading-relaxed mb-4">
           I've been glued to computers for as long as I can remember. And I mean
           that literally. My mom loves telling the story of walking into my room
           when I was around eight and finding me fully locked in, building
@@ -32,7 +32,7 @@ const About = () => {
           I don't even remember this, but apparently that was the vibe from day
           one.
         </p>
-        <p className="text-text-secondary leading-relaxed mb-3">
+        <p className="text-text-secondary leading-relaxed mb-4">
           Growing up in Ukraine, I spent my free time in middle school attending
           a computer academy that threw everything at us — Python, design,
           robotics, game dev, business. The main thing I took away? That I liked
@@ -46,20 +46,16 @@ const About = () => {
       </section>
 
       {/* Education & Experience */}
-      <section className="mb-8">
-        <h2 className="font-mono text-lg font-semibold mb-4">
-          Where I'm At Now
-        </h2>
-        <div className="flex flex-col gap-4">
+      <section className="mb-10">
+        <h2 className="font-serif text-2xl italic mb-6">Where I'm At Now</h2>
+        <div className="flex flex-col">
           {/* IMS */}
-          <div className="p-4 rounded-lg bg-surface-raised/40 border border-surface-border">
-            <div className="flex items-center justify-between mb-1">
+          <div className="py-5 border-b border-surface-border">
+            <div className="flex items-baseline justify-between mb-1.5">
               <span className="text-text-primary font-medium">
                 IMS Baden — CS Student
               </span>
-              <span className="font-mono text-xs text-text-muted">
-                2024 – 2028
-              </span>
+              <span className="text-xs text-text-muted">2024 – 2028</span>
             </div>
             <p className="text-text-secondary text-sm leading-relaxed">
               Dual program: Berufsmatura at Kanti Baden + EFZ Informatiker
@@ -69,14 +65,12 @@ const About = () => {
           </div>
 
           {/* Praktikum */}
-          <div className="p-4 rounded-lg bg-surface-raised/40 border border-surface-border">
-            <div className="flex items-center justify-between mb-1">
+          <div className="py-5 border-b border-surface-border">
+            <div className="flex items-baseline justify-between mb-1.5">
               <span className="text-text-primary font-medium">
                 Software Engineer at ITConsulting24 — Praktikum
               </span>
-              <span className="font-mono text-xs text-text-muted">
-                3 months in 2023
-              </span>
+              <span className="text-xs text-text-muted">3 months, 2023</span>
             </div>
             <p className="text-text-secondary text-sm leading-relaxed">
               Got hands-on professional experience early, worked as a software
@@ -87,12 +81,12 @@ const About = () => {
           </div>
 
           {/* Cisco */}
-          <div className="p-4 rounded-lg bg-surface-raised/40 border border-surface-border">
-            <div className="flex items-center justify-between mb-1">
+          <div className="py-5 border-b border-surface-border">
+            <div className="flex items-baseline justify-between mb-1.5">
               <span className="text-text-primary font-medium">
                 Cisco Cybersecurity — Coursework
               </span>
-              <span className="font-mono text-xs text-text-muted">ongoing</span>
+              <span className="text-xs text-text-muted">ongoing</span>
             </div>
             <p className="text-text-secondary text-sm leading-relaxed">
               Working through Cisco's cybersecurity curriculum on my own time.
@@ -104,13 +98,13 @@ const About = () => {
       </section>
 
       {/* How I learn */}
-      <section className="mb-8">
-        <h2 className="font-mono text-lg font-semibold mb-3">How I Learn</h2>
-        <p className="text-text-secondary leading-relaxed mb-3">
+      <section className="mb-10">
+        <h2 className="font-serif text-2xl italic mb-4">How I Learn</h2>
+        <p className="text-text-secondary leading-relaxed mb-4">
           I don't learn from tutorials, I learn by building things that actually
           work. The best example: I taught myself{" "}
           <span className="text-text-primary">Go</span> from scratch by building{" "}
-          <Link to="/projects" className="text-accent hover:underline">
+          <Link to="/projects" className="text-text-primary underline underline-offset-3 hover:text-white transition-colors">
             SongSwap
           </Link>
           , a full-stack music discovery app. JWT auth, PostgreSQL, rate
@@ -125,17 +119,17 @@ const About = () => {
       </section>
 
       {/* Skills */}
-      <section className="mb-8">
-        <h2 className="font-mono text-lg font-semibold mb-3">Skills & Tools</h2>
-        <div className="flex flex-wrap gap-2">
+      <section className="mb-10">
+        <h2 className="font-serif text-2xl italic mb-4">Skills & Tools</h2>
+        <div className="flex flex-wrap gap-x-1 gap-y-2">
           {skills.map((s, i) => (
             <span
               key={i}
-              className="text-sm text-text-secondary bg-surface-raised border border-surface-border px-3 py-1.5 rounded-lg"
+              className="text-sm text-text-secondary border-b border-surface-border pb-0.5 mr-4"
             >
               {s.name}
               <span className="text-text-muted text-xs ml-1.5">
-                · {s.context}
+                {s.context}
               </span>
             </span>
           ))}
@@ -143,15 +137,13 @@ const About = () => {
       </section>
 
       {/* Outside of code */}
-      <section className="mb-8">
-        <h2 className="font-mono text-lg font-semibold mb-3">
-          Outside of Code
-        </h2>
+      <section className="mb-10">
+        <h2 className="font-serif text-2xl italic mb-4">Outside of Code</h2>
         <p className="text-text-secondary leading-relaxed">
           When I'm not in front of a screen, you'll find me riding my mountain
           bike, binging TV shows and movies, gaming, traveling with friends, or
           at a concert throwing my hands in the moshpit. Check out the{" "}
-          <Link to="/personal" className="text-accent hover:underline">
+          <Link to="/personal" className="text-text-primary underline underline-offset-3 hover:text-white transition-colors">
             personal page
           </Link>{" "}
           if you want the full picture.
@@ -159,10 +151,10 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="pt-6 border-t border-surface-border">
+      <section className="pt-8 border-t border-surface-border">
         <p className="text-text-secondary">
           Currently looking ahead to apprenticeship opportunities starting 2027.{" "}
-          <Link to="/contact" className="text-accent hover:underline">
+          <Link to="/contact" className="text-text-primary underline underline-offset-3 hover:text-white transition-colors">
             Reach out
           </Link>{" "}
           if you want to collaborate, chat, or just talk music.

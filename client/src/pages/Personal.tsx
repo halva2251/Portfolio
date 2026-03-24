@@ -6,7 +6,7 @@ import { getRecentTracks, type Track } from "../services/lastfmService";
 const games = [
   { name: "Death Stranding 1 & 2", note: "peak Kojima" },
   { name: "Red Dead Redemption 1 & 2", note: null },
-  { name: "God of War + Ragnarök", note: null },
+  { name: "God of War + Ragnarok", note: null },
   { name: "Disco Elysium", note: "still playing" },
   { name: "Overwatch 2", note: "definitely not addicted" },
 ];
@@ -52,11 +52,11 @@ const ListCard = ({
   title: string;
   items: { primary: string; secondary?: string; note: string | null }[];
 }) => (
-  <div className="bg-surface-raised/40 border border-surface-border rounded-2xl p-5 flex flex-col">
-    <h3 className="font-mono text-xs uppercase tracking-widest text-text-muted mb-4">
+  <div className="bg-surface-raised/40 border border-surface-border rounded-sm p-5 flex flex-col">
+    <h3 className="text-xs uppercase tracking-wide text-text-muted mb-4">
       {title}
     </h3>
-    <div className="flex flex-col gap-0.5 flex-1">
+    <div className="flex flex-col flex-1">
       {items.map((item, i) => (
         <div
           key={i}
@@ -67,7 +67,7 @@ const ListCard = ({
             <span className="text-text-muted"> — {item.secondary}</span>
           )}
           {item.note && (
-            <span className="text-accent italic text-xs ml-2">
+            <span className="text-text-muted italic text-xs ml-2">
               ({item.note})
             </span>
           )}
@@ -91,7 +91,7 @@ const HeroTile = ({
   className?: string;
 }) => (
   <div
-    className={`relative rounded-2xl overflow-hidden border border-surface-border group ${className}`}
+    className={`relative rounded-sm overflow-hidden border border-surface-border group ${className}`}
   >
     {video ? (
       <video
@@ -111,7 +111,7 @@ const HeroTile = ({
     ) : null}
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
     <div className="relative h-full flex flex-col justify-end p-5">
-      <h3 className="font-mono text-lg font-semibold text-white">{label}</h3>
+      <h3 className="font-serif text-xl italic text-white">{label}</h3>
       {sublabel && <p className="text-white/60 text-sm mt-1">{sublabel}</p>}
     </div>
   </div>
@@ -126,8 +126,8 @@ const GalleryTile = ({
   label: string;
   sublabel?: string;
 }) => (
-  <div className="bg-surface-raised/40 border border-surface-border rounded-2xl p-5 flex flex-col">
-    <h3 className="font-mono text-xs uppercase tracking-widest text-text-muted mb-3">
+  <div className="bg-surface-raised/40 border border-surface-border rounded-sm p-5 flex flex-col">
+    <h3 className="text-xs uppercase tracking-wide text-text-muted mb-2">
       {label}
     </h3>
     {sublabel && <p className="text-text-secondary text-sm mb-3">{sublabel}</p>}
@@ -135,7 +135,7 @@ const GalleryTile = ({
       {images.map((src, i) => (
         <div
           key={i}
-          className="relative rounded-lg overflow-hidden aspect-square"
+          className="relative rounded-sm overflow-hidden aspect-square"
         >
           <img
             src={src}
@@ -163,40 +163,40 @@ const Personal = () => {
 
   return (
     <div>
-      <h1 className="font-mono text-3xl font-bold mb-2">Personal</h1>
-      <p className="text-text-muted text-sm mb-8">Beyond the code.</p>
+      <h1 className="font-serif text-5xl italic mb-2">Personal</h1>
+      <p className="text-text-muted text-sm mb-10">Beyond the code.</p>
 
-      {/* ── BENTO GRID ── */}
+      {/* BENTO GRID */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 auto-rows-auto">
         {/* Last.fm — tall left card */}
-        <div className="md:row-span-2 bg-surface-raised/40 border border-surface-border rounded-2xl p-5 flex flex-col">
-          <h3 className="font-mono text-xs uppercase tracking-widest text-text-muted mb-4">
+        <div className="md:row-span-2 bg-surface-raised/40 border border-surface-border rounded-sm p-5 flex flex-col">
+          <h3 className="text-xs uppercase tracking-wide text-text-muted mb-4">
             Now Playing
           </h3>
           {loading ? (
             <p className="text-text-muted text-sm">Loading...</p>
           ) : recentTracks.length > 0 ? (
-            <div className="flex flex-col gap-2 flex-1">
+            <div className="flex flex-col gap-1 flex-1">
               {recentTracks.map((track, i) => (
                 <a
                   key={i}
                   href={track.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-raised transition-colors"
+                  className="flex items-center gap-3 p-2.5 rounded-sm hover:bg-surface-raised transition-colors"
                 >
                   {track.image && (
                     <img
                       src={track.image}
                       alt={track.album}
-                      className="w-10 h-10 rounded-lg object-cover flex-shrink-0"
+                      className="w-10 h-10 rounded-sm object-cover flex-shrink-0"
                     />
                   )}
                   <div className="min-w-0">
-                    <div className="text-text-primary text-sm font-medium truncate flex items-center gap-2">
+                    <div className="text-text-primary text-sm truncate flex items-center gap-2">
                       {track.name}
                       {track.nowPlaying && (
-                        <span className="inline-flex items-center gap-1 text-green-400 text-[0.6rem] font-mono font-semibold flex-shrink-0">
+                        <span className="inline-flex items-center gap-1 text-green-400 text-[0.6rem] font-mono flex-shrink-0">
                           <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                           LIVE
                         </span>

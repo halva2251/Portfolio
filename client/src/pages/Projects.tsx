@@ -37,53 +37,45 @@ const projects = [
 const Projects = () => {
   return (
     <div>
-      <h1 className="font-mono text-3xl font-bold mb-2">Projects</h1>
-      <p className="text-text-muted font-mono text-sm mb-8">
+      <h1 className="font-serif text-5xl italic mb-2">Projects</h1>
+      <p className="text-text-muted text-sm mb-12">
         Things I've built — from side projects to hackathons.
       </p>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col">
         {projects.map((p, i) => (
           <a
             key={i}
             href={p.github}
             target="_blank"
             rel="noopener noreferrer"
-            className={`block rounded-xl p-5 border transition-all duration-300 hover:-translate-y-0.5 hover:border-accent group ${
-              p.featured
-                ? "bg-accent/[0.03] border-accent/20"
-                : "bg-surface-raised/40 border-surface-border"
-            }`}
+            className="group block py-6 border-b border-surface-border first:border-t transition-colors"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <h2 className="font-mono text-lg font-semibold text-text-primary">
+            <div className="flex items-baseline gap-3 mb-2">
+              <h2 className="font-serif text-2xl text-text-primary italic group-hover:text-white transition-colors">
                 {p.name}
               </h2>
-              <span className="font-mono text-[0.65rem] text-text-muted border border-surface-border px-2 py-0.5 rounded">
-                {p.type}
-              </span>
+              <span className="text-xs text-text-muted">{p.type}</span>
               {p.featured && (
-                <span className="font-mono text-[0.65rem] text-accent bg-accent/10 px-2 py-0.5 rounded uppercase tracking-wide">
-                  ★ Featured
-                </span>
+                <span className="text-xs text-text-secondary">Featured</span>
               )}
             </div>
-            <p className="text-text-secondary text-sm leading-relaxed mb-3">
+            <p className="text-text-secondary text-sm leading-relaxed mb-3 max-w-xl">
               {p.description}
             </p>
-            <div className="flex flex-wrap gap-2 mb-3">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
               {p.tech.map((t, j) => (
                 <span
                   key={j}
-                  className="font-mono text-[0.7rem] text-accent bg-accent/[0.08] px-2 py-0.5 rounded"
+                  className="font-mono text-xs text-text-muted"
                 >
                   {t}
                 </span>
               ))}
+              <span className="text-text-muted text-sm ml-auto group-hover:text-text-secondary transition-colors">
+                GitHub &rarr;
+              </span>
             </div>
-            <span className="font-mono text-sm text-accent group-hover:underline">
-              View on GitHub →
-            </span>
           </a>
         ))}
       </div>

@@ -54,34 +54,29 @@ const Contact = () => {
   };
 
   const inputClass =
-    "w-full bg-surface-raised border border-surface-border rounded-lg px-4 py-3 text-text-primary text-sm placeholder:text-text-muted/60 focus:outline-none focus:border-accent transition-colors";
+    "w-full bg-transparent border-b border-surface-border px-0 py-3 text-text-primary text-sm placeholder:text-text-muted/50 focus:outline-none focus:border-text-muted transition-colors";
 
   return (
     <div>
-      <h1 className="font-mono text-3xl font-bold mb-2">Let's Talk</h1>
-      <p className="text-text-secondary text-sm mb-6 max-w-lg">
+      <h1 className="font-serif text-5xl italic mb-2">Let's Talk</h1>
+      <p className="text-text-secondary text-sm mb-4 max-w-lg">
         Got a project idea, want to chat about tech, or just want to argue about
         music? I'm all ears. Seriously, don't overthink it.
       </p>
 
-      {/* Availability badge */}
-      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 mb-10">
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-        </span>
-        <span className="font-mono text-xs text-green-400">
-          Open to apprenticeship opportunities — 2027
-        </span>
-      </div>
+      {/* Availability */}
+      <p className="text-sm text-text-muted mb-12">
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500 mr-2 relative top-[-1px]" />
+        Open to apprenticeship opportunities — 2027
+      </p>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
             <label
               htmlFor="name"
-              className="block text-text-secondary text-sm mb-1"
+              className="block text-xs text-text-muted uppercase tracking-wide mb-2"
             >
               Name
             </label>
@@ -97,7 +92,7 @@ const Contact = () => {
           <div>
             <label
               htmlFor="email"
-              className="block text-text-secondary text-sm mb-1"
+              className="block text-xs text-text-muted uppercase tracking-wide mb-2"
             >
               Email
             </label>
@@ -114,14 +109,14 @@ const Contact = () => {
         <div>
           <label
             htmlFor="message"
-            className="block text-text-secondary text-sm mb-1"
+            className="block text-xs text-text-muted uppercase tracking-wide mb-2"
           >
             Message
           </label>
           <textarea
             id="message"
             name="message"
-            rows={5}
+            rows={4}
             required
             placeholder="What's on your mind?"
             className={`${inputClass} resize-y`}
@@ -130,13 +125,13 @@ const Contact = () => {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="self-start px-6 py-3 bg-accent text-surface font-mono text-sm font-semibold rounded-lg hover:bg-accent-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="self-start px-5 py-2.5 bg-text-primary text-surface text-sm font-medium hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {status === "sending" ? "Sending..." : "Send Message →"}
+          {status === "sending" ? "Sending..." : "Send Message"}
         </button>
         {status === "success" && (
           <p className="text-green-400 text-sm">
-            Message sent! I'll get back to you soon.
+            Message sent. I'll get back to you soon.
           </p>
         )}
         {status === "error" && (
@@ -148,18 +143,18 @@ const Contact = () => {
 
       {/* Socials */}
       <div>
-        <h2 className="font-mono text-xs uppercase tracking-widest text-text-muted mb-4">
+        <h2 className="text-xs text-text-muted uppercase tracking-wide mb-6">
           Or find me here
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-surface-border">
           {socials.map((s, i) =>
             s.copyable ? (
               <button
                 key={i}
                 onClick={handleCopyDiscord}
-                className="text-left p-4 rounded-xl bg-surface-raised/40 border border-surface-border hover:border-accent transition-all group"
+                className="text-left p-5 bg-surface hover:bg-surface-raised transition-colors group"
               >
-                <span className="block font-mono text-sm font-semibold text-text-primary group-hover:text-accent transition-colors">
+                <span className="block text-sm text-text-primary group-hover:text-white transition-colors">
                   {s.label}
                 </span>
                 <span className="block text-text-muted text-xs mt-1">
@@ -172,9 +167,9 @@ const Contact = () => {
                 href={s.url!}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 rounded-xl bg-surface-raised/40 border border-surface-border hover:border-accent transition-all group"
+                className="p-5 bg-surface hover:bg-surface-raised transition-colors group"
               >
-                <span className="block font-mono text-sm font-semibold text-text-primary group-hover:text-accent transition-colors">
+                <span className="block text-sm text-text-primary group-hover:text-white transition-colors">
                   {s.label}
                 </span>
                 <span className="block text-text-muted text-xs mt-1">
