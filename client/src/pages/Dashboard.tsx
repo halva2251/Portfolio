@@ -17,7 +17,7 @@ const featuredProjects = [
     description:
       "A satirical Q&A platform where you post real tech questions and an AI generates completely wrong but supremely confident answers. Currently building this with a friend — we're training our own model on his home server. The goal is maximum confidence, minimum accuracy.",
     tech: ["In Progress"],
-    github: null,
+    github: "https://github.com/halva2251/StackUnderFlow",
     type: "Personal",
   },
 ];
