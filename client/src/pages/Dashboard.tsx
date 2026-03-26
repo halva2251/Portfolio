@@ -225,52 +225,70 @@ const Dashboard = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 auto-rows-auto">
         {/* ── ROW 1: INTRO | LAST.FM | STATUS ── */}
 
-        {/* INTRO */}
-        <Card className="md:row-span-2 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              <span className="font-mono text-xs text-accent">
-                Open to apprenticeships — 2027
-              </span>
+        {/* INTRO + STACK wrapper */}
+        <div className="md:row-span-2 flex flex-col gap-3 sm:gap-4">
+          {/* INTRO */}
+          <Card className="flex-1 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-2 h-2 rounded-full bg-accent" />
+                <span className="font-mono text-xs text-accent">
+                  Open to apprenticeships — 2027
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-1">
+                Yevhenii Sauliak
+              </h1>
+              <p className="text-text-muted text-sm mb-4">
+                aka <span className="text-text-secondary">"Yen"</span> or{" "}
+                <span className="text-text-secondary">"halva"</span> online
+              </p>
+              <p className="text-text-secondary text-sm leading-relaxed">
+                CS student in Switzerland who builds things to learn how they
+                work. Currently into Go, React, and self-deployment.
+              </p>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-1">
-              Yevhenii Sauliak
-            </h1>
-            <p className="text-text-muted text-sm mb-4">
-              aka <span className="text-text-secondary">"Yen"</span> or{" "}
-              <span className="text-text-secondary">"halva"</span> online
-            </p>
-            <p className="text-text-secondary text-sm leading-relaxed">
-              CS student in Switzerland who builds things to learn how they
-              work. Currently into Go, React, and self-deployment.
-            </p>
-          </div>
-          <div className="flex gap-2 mt-6">
-            <a
-              href="#contact"
-              className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
-            >
-              Contact
-            </a>
-            <a
-              href="https://github.com/halva2251"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/yevhenii-sauliak/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </Card>
+            <div className="flex gap-2 mt-6">
+              <a
+                href="#contact"
+                className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
+              >
+                Contact
+              </a>
+              <a
+                href="https://github.com/halva2251"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/yevhenii-sauliak/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </Card>
+
+          {/* SKILLS */}
+          <Card className="self-end">
+            <CardLabel>Stack</CardLabel>
+            <div className="flex flex-wrap gap-1.5">
+              {skills.map((s, i) => (
+                <span
+                  key={i}
+                  className="text-xs text-text-secondary bg-surface-hover px-2.5 py-1 rounded-md"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </Card>
+        </div>
 
         {/* NOW PLAYING */}
         <Card>
@@ -355,7 +373,7 @@ const Dashboard = () => {
           </div>
         </Card>
 
-        {/* ── ROW 2: ABOUT (2 cols) | SKILLS (1 col, under status) ── */}
+        {/* ── ROW 2: ABOUT (2 cols) ── */}
 
         {/* ABOUT — full narrative */}
         <Card className="md:col-span-2">
@@ -398,21 +416,6 @@ const Dashboard = () => {
               friends, or at a concert throwing my hands in the moshpit. Check
               out the personal zone below for a glimpse of that side of me.
             </p>
-          </div>
-        </Card>
-
-        {/* SKILLS */}
-        <Card>
-          <CardLabel>Stack</CardLabel>
-          <div className="flex flex-wrap gap-1.5">
-            {skills.map((s, i) => (
-              <span
-                key={i}
-                className="text-xs text-text-secondary bg-surface-hover px-2.5 py-1 rounded-md"
-              >
-                {s}
-              </span>
-            ))}
           </div>
         </Card>
 
