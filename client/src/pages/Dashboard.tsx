@@ -11,6 +11,15 @@ const featuredProjects = [
     tech: ["Go", "React", "TypeScript", "PostgreSQL", "Docker", "AWS"],
     github: "https://github.com/halva2251/songswap",
     type: "Personal",
+    wide: true,
+  },
+  {
+    name: "TrackMyFood",
+    description:
+      "Top 10 finalist at BadenHackt 2026 out of 30 teams. I designed and built the entire Go backend solo for Team Autexis — a food supply-chain traceability platform with trust scores, recall alerts, and JWT-authenticated REST API. The jury highlighted the backend as a textbook example for code quality.",
+    tech: ["Go", "PostgreSQL", "React Native", "Expo", "TypeScript", "JWT"],
+    github: "https://github.com/TrackMyFood",
+    type: "Hackathon",
   },
   {
     name: "StackUnderflow",
@@ -67,8 +76,9 @@ const games = [
   { name: "Death Stranding 1 & 2", note: "peak Kojima" },
   { name: "Red Dead Redemption 1 & 2", note: null },
   { name: "God of War + Ragnarok", note: null },
-  { name: "Disco Elysium", note: "still playing" },
-  { name: "Overwatch 2", note: "definitely not addicted" },
+  { name: "Disco Elysium", note: "surprisingly good" },
+  { name: "Bloons TD 6", note: "definitely not addicted" },
+  { name: "The Last of Us 1 & 2", note: null },
 ];
 
 const shows = [
@@ -77,10 +87,11 @@ const shows = [
   { name: "Breaking Bad", note: null },
   { name: "YOU", note: null },
   { name: "Bojack Horseman / Vinland Saga", note: "can't pick one" },
+  { name: "Dexter", note: "still watching" },
 ];
 
 const musicRotation = [
-  { artist: "Lorna Shore", album: "Pain Remains", note: null },
+  { artist: "Darko US", album: "DETHMASK 3", note: null },
   {
     artist: "Signs of the Swarm",
     album: "Amongst the Low and Empty",
@@ -218,501 +229,553 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen p-3 sm:p-4 md:p-6">
-      {/* ═══════════════════════════════════════════════════
+    <div className="min-h-screen">
+      {/* ── STICKY NAV ── */}
+      <header className="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-surface-border">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-3 sm:px-4 md:px-6 h-12">
+          <span className="font-serif text-xl italic text-text-primary">
+            yen
+          </span>
+          <nav className="flex items-center gap-6">
+            <a
+              href="#work"
+              className="text-sm text-text-muted hover:text-text-secondary transition-colors"
+            >
+              Work
+            </a>
+            <a
+              href="#personal"
+              className="text-sm text-text-muted hover:text-text-secondary transition-colors"
+            >
+              Personal
+            </a>
+            <a
+              href="#contact"
+              className="text-sm text-text-muted hover:text-text-secondary transition-colors"
+            >
+              Contact
+            </a>
+          </nav>
+        </div>
+      </header>
+      <div className="p-3 sm:p-4 md:p-6">
+        {/* ═══════════════════════════════════════════════════
           PROFESSIONAL ZONE
           ═══════════════════════════════════════════════════ */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 auto-rows-auto">
-        {/* ── ROW 1: INTRO | LAST.FM | STATUS ── */}
+        <div
+          id="work"
+          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 auto-rows-auto"
+        >
+          {/* ── ROW 1: INTRO | LAST.FM | STATUS ── */}
 
-        {/* INTRO + STACK wrapper */}
-        <div className="md:row-span-2 flex flex-col gap-3 sm:gap-4">
-          {/* INTRO */}
-          <Card className="flex-1 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-2 mb-6">
-                <span className="w-2 h-2 rounded-full bg-accent" />
-                <span className="font-mono text-xs text-accent">
-                  Open to apprenticeships — 2027
-                </span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-1">
-                Yevhenii Sauliak
-              </h1>
-              <p className="text-text-muted text-sm mb-4">
-                aka <span className="text-text-secondary">"Yen"</span> or{" "}
-                <span className="text-text-secondary">"halva"</span> online
-              </p>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                CS student in Switzerland who builds things to learn how they
-                work. Currently into Go, React, and self-deployment.
-              </p>
-            </div>
-            <div className="flex gap-2 mt-6">
-              <a
-                href="#contact"
-                className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
-              >
-                Contact
-              </a>
-              <a
-                href="https://github.com/halva2251"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/yevhenii-sauliak/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </Card>
-
-          {/* SKILLS */}
-          <Card className="self-end">
-            <CardLabel>Stack</CardLabel>
-            <div className="flex flex-wrap gap-1.5">
-              {skills.map((s, i) => (
-                <span
-                  key={i}
-                  className="text-xs text-text-secondary bg-surface-hover px-2.5 py-1 rounded-md"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
-          </Card>
-        </div>
-
-        {/* NOW PLAYING */}
-        <Card>
-          <CardLabel>
-            {tracks.length > 0 && tracks[0].nowPlaying
-              ? "Now Playing"
-              : "Recently Played"}
-          </CardLabel>
-          {tracksLoading ? (
-            <div className="space-y-3">
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="flex items-center gap-3 animate-pulse">
-                  <div className="w-9 h-9 rounded-lg bg-surface-hover flex-shrink-0" />
-                  <div className="flex-1 space-y-1.5">
-                    <div className="h-3 bg-surface-hover rounded w-3/4" />
-                    <div className="h-2.5 bg-surface-hover rounded w-1/2" />
-                  </div>
+          {/* INTRO + STACK wrapper */}
+          <div className="md:row-span-2 flex flex-col gap-3 sm:gap-4">
+            {/* INTRO */}
+            <Card className="flex-1 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-6">
+                  <span className="w-2 h-2 rounded-full bg-accent" />
+                  <span className="font-mono text-xs text-accent">
+                    Open to apprenticeships — 2027
+                  </span>
                 </div>
-              ))}
-            </div>
-          ) : tracks.length > 0 ? (
-            <div className="flex flex-col gap-1">
-              {tracks.slice(0, 4).map((track, i) => (
+                <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-1">
+                  Yevhenii Sauliak
+                </h1>
+                <p className="text-text-muted text-sm mb-4">
+                  aka <span className="text-text-secondary">"Yen"</span> or{" "}
+                  <span className="text-text-secondary">"halva"</span> online
+                </p>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  CS student in Switzerland who builds things to learn how they
+                  work. Currently into Go, React, and self-deployment.
+                </p>
+              </div>
+              <div className="flex gap-2 mt-6">
                 <a
-                  key={i}
-                  href={track.url}
+                  href="#contact"
+                  className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
+                >
+                  Contact
+                </a>
+                <a
+                  href="https://github.com/halva2251"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-hover transition-colors cursor-pointer -mx-2"
+                  className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
                 >
-                  {track.image && (
-                    <img
-                      src={track.image}
-                      alt={`${track.name} by ${track.artist}`}
-                      className="w-9 h-9 rounded-lg object-cover flex-shrink-0"
-                    />
-                  )}
-                  <div className="min-w-0 flex-1">
-                    <div className="text-sm text-text-primary truncate flex items-center gap-2">
-                      {track.name}
-                      {track.nowPlaying && (
-                        <span className="flex items-center gap-1 text-accent text-[0.6rem] font-mono flex-shrink-0">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                          LIVE
-                        </span>
-                      )}
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/yevhenii-sauliak/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors cursor-pointer"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </Card>
+
+            {/* SKILLS */}
+            <Card className="self-end">
+              <CardLabel>Stack</CardLabel>
+              <div className="flex flex-wrap gap-1.5">
+                {skills.map((s, i) => (
+                  <span
+                    key={i}
+                    className="text-xs text-text-secondary bg-surface-hover px-2.5 py-1 rounded-md"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </Card>
+          </div>
+
+          {/* NOW PLAYING */}
+          <Card>
+            <CardLabel>
+              {tracks.length > 0 && tracks[0].nowPlaying
+                ? "Now Playing"
+                : "Recently Played"}
+            </CardLabel>
+            {tracksLoading ? (
+              <div className="space-y-3">
+                {[...Array(3)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 animate-pulse"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-surface-hover flex-shrink-0" />
+                    <div className="flex-1 space-y-1.5">
+                      <div className="h-3 bg-surface-hover rounded w-3/4" />
+                      <div className="h-2.5 bg-surface-hover rounded w-1/2" />
                     </div>
-                    <div className="text-xs text-text-muted truncate">
-                      {track.artist}
+                  </div>
+                ))}
+              </div>
+            ) : tracks.length > 0 ? (
+              <div className="flex flex-col gap-1">
+                {tracks.slice(0, 4).map((track, i) => (
+                  <a
+                    key={i}
+                    href={track.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-hover transition-colors cursor-pointer -mx-2"
+                  >
+                    {track.image && (
+                      <img
+                        src={track.image}
+                        alt={`${track.name} by ${track.artist}`}
+                        className="w-9 h-9 rounded-lg object-cover flex-shrink-0"
+                      />
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm text-text-primary truncate flex items-center gap-2">
+                        {track.name}
+                        {track.nowPlaying && (
+                          <span className="flex items-center gap-1 text-accent text-[0.6rem] font-mono flex-shrink-0">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                            LIVE
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-xs text-text-muted truncate">
+                        {track.artist}
+                      </div>
                     </div>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <p className="text-text-muted text-sm">Couldn't load tracks</p>
+            )}
+            <div className="mt-3 pt-3 border-t border-surface-border/50">
+              <span className="font-mono text-[0.6rem] text-text-muted">
+                via Last.fm
+              </span>
+            </div>
+          </Card>
+
+          {/* STATUS */}
+          <Card className="flex flex-col gap-4">
+            <div>
+              <CardLabel>Building</CardLabel>
+              <p className="text-sm text-text-primary">StackUnderflow</p>
+            </div>
+            <div>
+              <CardLabel>Learning</CardLabel>
+              <p className="text-sm text-text-primary">Go & CI/CD</p>
+            </div>
+            <div>
+              <CardLabel>Education</CardLabel>
+              <p className="text-sm text-text-primary">IMS Baden — CS</p>
+              <p className="text-xs text-text-muted mt-0.5">
+                Berufsmatura + EFZ Informatiker
+              </p>
+              <p className="text-xs text-text-muted">2024 – 2028</p>
+            </div>
+          </Card>
+
+          {/* ── ROW 2: ABOUT (2 cols) ── */}
+
+          {/* ABOUT — full narrative */}
+          <Card className="md:col-span-2">
+            <CardLabel>About Me</CardLabel>
+            <div className="space-y-3 text-sm text-text-secondary leading-relaxed">
+              <p>
+                I've been glued to computers for as long as I can remember. My
+                mom loves telling the story of walking into my room when I was
+                around eight and finding me fully locked in, building something
+                on screen. She asked what I was doing. My response:{" "}
+                <span className="text-text-primary italic">
+                  "You won't get it, I'm programming a clock."
+                </span>{" "}
+                I don't even remember this, but apparently that was the vibe
+                from day one.
+              </p>
+              <p>
+                Growing up in Ukraine, I spent my free time attending a computer
+                academy — Python, design, robotics, game dev, business. The main
+                thing I took away? That I liked coding way more than all the
+                other stuff. When I moved to Switzerland about four years ago,
+                that didn't change. If anything, it got sharper.
+              </p>
+              <p>
+                I don't learn from tutorials. I learn by building things that
+                actually work. Taught myself Go from scratch by building{" "}
+                <span className="text-text-primary">SongSwap</span> — JWT auth,
+                PostgreSQL, Docker, CI/CD, deployed to my Raspberry Pi, all in
+                about a month. I'm also working through Cisco's cybersecurity
+                curriculum on my own time, because understanding how things
+                break helps you build them better.
+              </p>
+              <p>
+                I never really saw myself doing anything else. It's not just
+                what I study — it's what I'd be doing anyway.
+              </p>
+              <p>
+                When I'm not in front of a screen, you'll find me riding my
+                mountain bike, binging TV shows and movies, gaming, traveling
+                with friends, or at a concert throwing my hands in the moshpit.
+                Check out the personal zone below for a glimpse of that side of
+                me.
+              </p>
+            </div>
+          </Card>
+
+          {/* ── ROW 3: FEATURED PROJECTS (full width) ── */}
+
+          <div className="md:col-span-3">
+            <CardLabel>Featured Projects</CardLabel>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+              {featuredProjects.map((p, i) => (
+                <Card
+                  key={i}
+                  href={p.github ?? undefined}
+                  className={`flex flex-col ${!p.github ? "cursor-default" : ""} ${p.wide ? "md:col-span-2" : ""}`}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-lg font-bold text-text-primary">
+                      {p.name}
+                    </span>
+                    <span className="font-mono text-[0.6rem] text-text-muted border border-surface-border px-1.5 py-0.5 rounded">
+                      {p.type}
+                    </span>
+                    {!p.github && (
+                      <span className="font-mono text-[0.6rem] text-accent bg-accent-dim px-1.5 py-0.5 rounded">
+                        WIP
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-text-secondary leading-relaxed mb-4 flex-1">
+                    {p.description}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 mt-auto">
+                    {p.tech.map((t, j) => (
+                      <span
+                        key={j}
+                        className="font-mono text-[0.65rem] text-text-muted bg-surface-hover px-2 py-0.5 rounded"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                    {p.github && (
+                      <span className="font-mono text-[0.6rem] text-text-secondary border border-surface-border px-2 py-0.5 rounded ml-auto flex-shrink-0">
+                        ↗ GitHub
+                      </span>
+                    )}
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* ── ROW 4: OTHER PROJECTS (full width) ── */}
+
+          <Card className="md:col-span-3">
+            <CardLabel>Other Projects</CardLabel>
+            <div className="flex flex-col divide-y divide-surface-border/50">
+              {otherProjects.map((p, i) => (
+                <a
+                  key={i}
+                  href={p.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 py-3 first:pt-0 last:pb-0 group cursor-pointer"
+                >
+                  <div className="flex items-center gap-2 sm:w-40 flex-shrink-0">
+                    <span className="text-sm font-medium text-text-primary group-hover:text-white transition-colors">
+                      {p.name}
+                    </span>
+                    <span className="font-mono text-[0.6rem] text-text-muted">
+                      {p.type}
+                    </span>
+                  </div>
+                  <p className="text-xs text-text-muted leading-relaxed flex-1">
+                    {p.description}
+                  </p>
+                  <div className="flex items-center gap-2 flex-shrink-0 mt-1 sm:mt-0">
+                    {p.tech.map((t, j) => (
+                      <span
+                        key={j}
+                        className="font-mono text-[0.6rem] text-text-muted"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                    <span className="text-text-muted text-xs ml-1 group-hover:text-text-secondary transition-colors">
+                      ↗
+                    </span>
                   </div>
                 </a>
               ))}
             </div>
-          ) : (
-            <p className="text-text-muted text-sm">Couldn't load tracks</p>
-          )}
-          <div className="mt-3 pt-3 border-t border-surface-border/50">
-            <span className="font-mono text-[0.6rem] text-text-muted">
-              via Last.fm
-            </span>
-          </div>
-        </Card>
-
-        {/* STATUS */}
-        <Card className="flex flex-col gap-4">
-          <div>
-            <CardLabel>Building</CardLabel>
-            <p className="text-sm text-text-primary">StackUnderflow</p>
-          </div>
-          <div>
-            <CardLabel>Learning</CardLabel>
-            <p className="text-sm text-text-primary">Go & CI/CD</p>
-          </div>
-          <div>
-            <CardLabel>Education</CardLabel>
-            <p className="text-sm text-text-primary">IMS Baden — CS</p>
-            <p className="text-xs text-text-muted mt-0.5">
-              Berufsmatura + EFZ Informatiker
-            </p>
-            <p className="text-xs text-text-muted">2024 – 2028</p>
-          </div>
-        </Card>
-
-        {/* ── ROW 2: ABOUT (2 cols) ── */}
-
-        {/* ABOUT — full narrative */}
-        <Card className="md:col-span-2">
-          <CardLabel>About Me</CardLabel>
-          <div className="space-y-3 text-sm text-text-secondary leading-relaxed">
-            <p>
-              I've been glued to computers for as long as I can remember. My mom
-              loves telling the story of walking into my room when I was around
-              eight and finding me fully locked in, building something on
-              screen. She asked what I was doing. My response:{" "}
-              <span className="text-text-primary italic">
-                "You won't get it, I'm programming a clock."
-              </span>{" "}
-              I don't even remember this, but apparently that was the vibe from
-              day one.
-            </p>
-            <p>
-              Growing up in Ukraine, I spent my free time attending a computer
-              academy — Python, design, robotics, game dev, business. The main
-              thing I took away? That I liked coding way more than all the other
-              stuff. When I moved to Switzerland about four years ago, that
-              didn't change. If anything, it got sharper.
-            </p>
-            <p>
-              I don't learn from tutorials. I learn by building things that
-              actually work. Taught myself Go from scratch by building{" "}
-              <span className="text-text-primary">SongSwap</span> — JWT auth,
-              PostgreSQL, Docker, CI/CD, deployed to my Raspberry Pi, all in
-              about a month. I'm also working through Cisco's cybersecurity
-              curriculum on my own time, because understanding how things break
-              helps you build them better.
-            </p>
-            <p>
-              I never really saw myself doing anything else. It's not just what
-              I study — it's what I'd be doing anyway.
-            </p>
-            <p>
-              When I'm not in front of a screen, you'll find me riding my
-              mountain bike, binging TV shows and movies, gaming, traveling with
-              friends, or at a concert throwing my hands in the moshpit. Check
-              out the personal zone below for a glimpse of that side of me.
-            </p>
-          </div>
-        </Card>
-
-        {/* ── ROW 3: FEATURED PROJECTS (full width) ── */}
-
-        <div className="md:col-span-3">
-          <CardLabel>Featured Projects</CardLabel>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-            {featuredProjects.map((p, i) => (
-              <Card
-                key={i}
-                href={p.github ?? undefined}
-                className={`flex flex-col ${!p.github ? "cursor-default" : ""}`}
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-lg font-bold text-text-primary">
-                    {p.name}
-                  </span>
-                  <span className="font-mono text-[0.6rem] text-text-muted border border-surface-border px-1.5 py-0.5 rounded">
-                    {p.type}
-                  </span>
-                  {!p.github && (
-                    <span className="font-mono text-[0.6rem] text-accent bg-accent-dim px-1.5 py-0.5 rounded">
-                      WIP
-                    </span>
-                  )}
-                </div>
-                <p className="text-sm text-text-secondary leading-relaxed mb-4 flex-1">
-                  {p.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {p.tech.map((t, j) => (
-                    <span
-                      key={j}
-                      className="font-mono text-[0.65rem] text-text-muted bg-surface-hover px-2 py-0.5 rounded"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
+          </Card>
         </div>
 
-        {/* ── ROW 4: OTHER PROJECTS (full width) ── */}
-
-        <Card className="md:col-span-3">
-          <CardLabel>Other Projects</CardLabel>
-          <div className="flex flex-col divide-y divide-surface-border/50">
-            {otherProjects.map((p, i) => (
-              <a
-                key={i}
-                href={p.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 py-3 first:pt-0 last:pb-0 group cursor-pointer"
-              >
-                <div className="flex items-center gap-2 sm:w-40 flex-shrink-0">
-                  <span className="text-sm font-medium text-text-primary group-hover:text-white transition-colors">
-                    {p.name}
-                  </span>
-                  <span className="font-mono text-[0.6rem] text-text-muted">
-                    {p.type}
-                  </span>
-                </div>
-                <p className="text-xs text-text-muted leading-relaxed flex-1">
-                  {p.description}
-                </p>
-                <div className="flex gap-2 flex-shrink-0 mt-1 sm:mt-0">
-                  {p.tech.map((t, j) => (
-                    <span
-                      key={j}
-                      className="font-mono text-[0.6rem] text-text-muted"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </a>
-            ))}
-          </div>
-        </Card>
-      </div>
-
-      {/* ═══════════════════════════════════════════════════
+        {/* ═══════════════════════════════════════════════════
           DIVIDER
           ═══════════════════════════════════════════════════ */}
-      <div className="max-w-6xl mx-auto my-8 sm:my-12 flex items-center gap-4">
-        <div className="flex-1 h-px bg-surface-border" />
-        <span className="text-text-muted text-xs font-mono tracking-wide">
-          Beyond the code
-        </span>
-        <div className="flex-1 h-px bg-surface-border" />
-      </div>
+        <div className="max-w-6xl mx-auto my-8 sm:my-12 flex items-center gap-4">
+          <div className="flex-1 h-px bg-surface-border" />
+          <span className="text-text-muted text-xs font-mono tracking-wide">
+            Beyond the code
+          </span>
+          <div className="flex-1 h-px bg-surface-border" />
+        </div>
 
-      {/* ═══════════════════════════════════════════════════
+        {/* ═══════════════════════════════════════════════════
           PERSONAL ZONE
           ═══════════════════════════════════════════════════ */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 auto-rows-auto">
-        {/* ── CONCERTS (video) ── */}
-        <div className="relative rounded-2xl overflow-hidden border border-surface-border min-h-[220px] group">
-          <video
-            src="/personal/concert.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-          <div className="relative h-full flex flex-col justify-end p-5">
-            <h3 className="text-lg font-bold text-white">Concerts</h3>
-            <p className="text-white/60 text-sm mt-0.5">
-              Somewhere in the moshpit
-            </p>
+        <div
+          id="personal"
+          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 auto-rows-auto"
+        >
+          {/* ── CONCERTS (video) ── */}
+          <div className="relative rounded-2xl overflow-hidden border border-surface-border min-h-[220px] group">
+            <video
+              src="/personal/concert.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <div className="relative h-full flex flex-col justify-end p-5">
+              <h3 className="text-lg font-bold text-white">Concerts</h3>
+              <p className="text-white/60 text-sm mt-0.5">
+                Somewhere in the moshpit
+              </p>
+            </div>
           </div>
+
+          {/* ── TRAVEL (gallery) ── */}
+          <Card>
+            <CardLabel>Traveling</CardLabel>
+            <p className="text-text-secondary text-sm mb-3">
+              Most recently: Hong Kong
+            </p>
+            <div className="grid grid-cols-2 gap-1.5">
+              {travelGallery.map((src, i) => (
+                <div
+                  key={i}
+                  className="relative rounded-lg overflow-hidden aspect-square"
+                >
+                  <img
+                    src={src}
+                    alt={`Travel photo ${i + 1}`}
+                    className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* ── CONTACT ── */}
+          <Card className="md:row-span-2" id="contact">
+            <CardLabel>Get in Touch</CardLabel>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3 mb-4">
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Name"
+                className="w-full bg-surface-hover border border-surface-border rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:border-text-muted transition-colors"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Email"
+                className="w-full bg-surface-hover border border-surface-border rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:border-text-muted transition-colors"
+              />
+              <textarea
+                name="message"
+                rows={3}
+                required
+                placeholder="Message"
+                className="w-full bg-surface-hover border border-surface-border rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:border-text-muted transition-colors resize-y"
+              />
+              <button
+                type="submit"
+                disabled={formStatus === "sending"}
+                className="w-full px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors disabled:opacity-50 cursor-pointer"
+              >
+                {formStatus === "sending" ? "Sending..." : "Send"}
+              </button>
+              {formStatus === "success" && (
+                <p className="text-accent text-xs">
+                  Sent! I'll get back to you.
+                </p>
+              )}
+              {formStatus === "error" && (
+                <p className="text-red-400 text-xs">Something went wrong.</p>
+              )}
+            </form>
+            <div className="border-t border-surface-border/50 pt-3 flex flex-col gap-1.5">
+              {socials.map((s, i) =>
+                s.copyable ? (
+                  <button
+                    key={i}
+                    onClick={handleCopyDiscord}
+                    className="flex items-center justify-between py-1.5 text-left group cursor-pointer"
+                  >
+                    <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">
+                      {s.label}
+                    </span>
+                    <span className="text-xs text-text-muted">
+                      {copied ? "copied!" : s.note}
+                    </span>
+                  </button>
+                ) : (
+                  <a
+                    key={i}
+                    href={s.url!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between py-1.5 group cursor-pointer"
+                  >
+                    <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">
+                      {s.label}
+                    </span>
+                    <span className="text-xs text-text-muted">{s.note}</span>
+                  </a>
+                ),
+              )}
+            </div>
+          </Card>
+
+          {/* ── GAMING (hero, wide) ── */}
+          <div className="md:col-span-2 relative rounded-2xl overflow-hidden border border-surface-border min-h-[200px] group">
+            <img
+              src="/personal/gaming.jpg"
+              alt="Gaming setup"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <div className="relative h-full flex flex-col justify-end p-5">
+              <h3 className="text-lg font-bold text-white">Gaming</h3>
+              <p className="text-white/60 text-sm mt-0.5">
+                Kojima, Rockstar, and way too much Overwatch
+              </p>
+            </div>
+          </div>
+
+          {/* ── GAMES LIST ── */}
+          <Card>
+            <CardLabel>Favorite Games</CardLabel>
+            <div className="flex flex-col">
+              {games.map((g, i) => (
+                <div
+                  key={i}
+                  className="py-2 border-b border-surface-border/40 last:border-0 text-sm"
+                >
+                  <span className="text-text-primary">{g.name}</span>
+                  {g.note && (
+                    <span className="text-text-muted italic text-xs ml-2">
+                      ({g.note})
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* ── SHOWS LIST ── */}
+          <Card>
+            <CardLabel>Favorite Shows</CardLabel>
+            <div className="flex flex-col">
+              {shows.map((s, i) => (
+                <div
+                  key={i}
+                  className="py-2 border-b border-surface-border/40 last:border-0 text-sm"
+                >
+                  <span className="text-text-primary">{s.name}</span>
+                  {s.note && (
+                    <span className="text-text-muted italic text-xs ml-2">
+                      ({s.note})
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* ── MUSIC ROTATION ── */}
+          <Card>
+            <CardLabel>Music Rotation</CardLabel>
+            <div className="flex flex-col">
+              {musicRotation.map((m, i) => (
+                <div
+                  key={i}
+                  className="py-2 border-b border-surface-border/40 last:border-0 text-sm"
+                >
+                  <span className="text-text-primary">{m.artist}</span>
+                  <span className="text-text-muted"> — {m.album}</span>
+                  {m.note && (
+                    <span className="text-text-muted italic text-xs ml-2">
+                      ({m.note})
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Card>
         </div>
 
-        {/* ── TRAVEL (gallery) ── */}
-        <Card>
-          <CardLabel>Traveling</CardLabel>
-          <p className="text-text-secondary text-sm mb-3">
-            Most recently: Hong Kong
-          </p>
-          <div className="grid grid-cols-2 gap-1.5">
-            {travelGallery.map((src, i) => (
-              <div
-                key={i}
-                className="relative rounded-lg overflow-hidden aspect-square"
-              >
-                <img
-                  src={src}
-                  alt={`Travel photo ${i + 1}`}
-                  className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        {/* ── CONTACT ── */}
-        <Card className="md:row-span-2" id="contact">
-          <CardLabel>Get in Touch</CardLabel>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3 mb-4">
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Name"
-              className="w-full bg-surface-hover border border-surface-border rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:border-text-muted transition-colors"
-            />
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Email"
-              className="w-full bg-surface-hover border border-surface-border rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:border-text-muted transition-colors"
-            />
-            <textarea
-              name="message"
-              rows={3}
-              required
-              placeholder="Message"
-              className="w-full bg-surface-hover border border-surface-border rounded-lg px-3 py-2 text-sm text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:border-text-muted transition-colors resize-y"
-            />
-            <button
-              type="submit"
-              disabled={formStatus === "sending"}
-              className="w-full px-4 py-2 bg-text-primary text-surface text-sm font-medium rounded-lg hover:bg-white transition-colors disabled:opacity-50 cursor-pointer"
-            >
-              {formStatus === "sending" ? "Sending..." : "Send"}
-            </button>
-            {formStatus === "success" && (
-              <p className="text-accent text-xs">Sent! I'll get back to you.</p>
-            )}
-            {formStatus === "error" && (
-              <p className="text-red-400 text-xs">Something went wrong.</p>
-            )}
-          </form>
-          <div className="border-t border-surface-border/50 pt-3 flex flex-col gap-1.5">
-            {socials.map((s, i) =>
-              s.copyable ? (
-                <button
-                  key={i}
-                  onClick={handleCopyDiscord}
-                  className="flex items-center justify-between py-1.5 text-left group cursor-pointer"
-                >
-                  <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">
-                    {s.label}
-                  </span>
-                  <span className="text-xs text-text-muted">
-                    {copied ? "copied!" : s.note}
-                  </span>
-                </button>
-              ) : (
-                <a
-                  key={i}
-                  href={s.url!}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between py-1.5 group cursor-pointer"
-                >
-                  <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">
-                    {s.label}
-                  </span>
-                  <span className="text-xs text-text-muted">{s.note}</span>
-                </a>
-              ),
-            )}
-          </div>
-        </Card>
-
-        {/* ── GAMING (hero, wide) ── */}
-        <div className="md:col-span-2 relative rounded-2xl overflow-hidden border border-surface-border min-h-[200px] group">
-          <img
-            src="/personal/gaming.jpg"
-            alt="Gaming setup"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-          <div className="relative h-full flex flex-col justify-end p-5">
-            <h3 className="text-lg font-bold text-white">Gaming</h3>
-            <p className="text-white/60 text-sm mt-0.5">
-              Kojima, Rockstar, and way too much Overwatch
-            </p>
-          </div>
+        {/* ═══ FOOTER ═══ */}
+        <div className="max-w-6xl mx-auto mt-8 sm:mt-12 pt-4 border-t border-surface-border flex justify-between items-center pb-4">
+          <span className="text-text-muted text-xs">
+            &copy; 2026 Yen Sauliak
+          </span>
+          <span className="font-mono text-text-muted text-[0.6rem]">
+            built with dedication
+          </span>
         </div>
-
-        {/* ── GAMES LIST ── */}
-        <Card>
-          <CardLabel>Favorite Games</CardLabel>
-          <div className="flex flex-col">
-            {games.map((g, i) => (
-              <div
-                key={i}
-                className="py-2 border-b border-surface-border/40 last:border-0 text-sm"
-              >
-                <span className="text-text-primary">{g.name}</span>
-                {g.note && (
-                  <span className="text-text-muted italic text-xs ml-2">
-                    ({g.note})
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        {/* ── SHOWS LIST ── */}
-        <Card>
-          <CardLabel>Favorite Shows</CardLabel>
-          <div className="flex flex-col">
-            {shows.map((s, i) => (
-              <div
-                key={i}
-                className="py-2 border-b border-surface-border/40 last:border-0 text-sm"
-              >
-                <span className="text-text-primary">{s.name}</span>
-                {s.note && (
-                  <span className="text-text-muted italic text-xs ml-2">
-                    ({s.note})
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        {/* ── MUSIC ROTATION ── */}
-        <Card>
-          <CardLabel>Music Rotation</CardLabel>
-          <div className="flex flex-col">
-            {musicRotation.map((m, i) => (
-              <div
-                key={i}
-                className="py-2 border-b border-surface-border/40 last:border-0 text-sm"
-              >
-                <span className="text-text-primary">{m.artist}</span>
-                <span className="text-text-muted"> — {m.album}</span>
-                {m.note && (
-                  <span className="text-text-muted italic text-xs ml-2">
-                    ({m.note})
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </Card>
-      </div>
-
-      {/* ═══ FOOTER ═══ */}
-      <div className="max-w-6xl mx-auto mt-8 sm:mt-12 pt-4 border-t border-surface-border flex justify-between items-center pb-4">
-        <span className="text-text-muted text-xs">&copy; 2026 Yen Sauliak</span>
-        <span className="font-mono text-text-muted text-[0.6rem]">
-          built with dedication
-        </span>
       </div>
     </div>
   );
