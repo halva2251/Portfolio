@@ -3,16 +3,6 @@ import { Link } from "react-router-dom";
 import { posts } from "../data/posts";
 import { getRecentTracks, type Track } from "../services/lastfmService";
 
-// ─── HELPERS ─────────────────────────────────────────
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-}
-
 // ─── DATA ────────────────────────────────────────────
 
 const featuredProjects = [
