@@ -1,5 +1,17 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { posts } from "../data/posts";
 import { getRecentTracks, type Track } from "../services/lastfmService";
+
+// ─── HELPERS ─────────────────────────────────────────
+
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
 
 // ─── DATA ────────────────────────────────────────────
 
@@ -249,6 +261,12 @@ const Dashboard = () => {
             >
               Personal
             </a>
+            <Link
+              to="/blog"
+              className="text-sm text-text-muted hover:text-text-secondary transition-colors"
+            >
+              Blog
+            </Link>
             <a
               href="#contact"
               className="text-sm text-text-muted hover:text-text-secondary transition-colors"
@@ -290,6 +308,27 @@ const Dashboard = () => {
                   CS student in Switzerland who builds things to learn how they
                   work. Currently into Go, React, and self-deployment.
                 </p>
+
+                <div className="mt-5 pt-4 border-t border-surface-border/50">
+                  <CardLabel>Blog</CardLabel>
+                  <div className="flex flex-col gap-3">
+                    {posts.slice(0, 3).map((post) => (
+                      <Link
+                        key={post.slug}
+                        to={`/blog/${post.slug}`}
+                        className="text-sm text-text-secondary hover:text-text-primary transition-colors leading-snug"
+                      >
+                        {post.title}
+                      </Link>
+                    ))}
+                  </div>
+                  <Link
+                    to="/blog"
+                    className="inline-block mt-3 font-mono text-xs text-text-muted hover:text-text-secondary transition-colors"
+                  >
+                    More →
+                  </Link>
+                </div>
               </div>
               <div className="flex gap-2 mt-6">
                 <a
@@ -437,31 +476,22 @@ const Dashboard = () => {
                 from day one.
               </p>
               <p>
-                Growing up in Ukraine, I spent my free time attending a computer
-                academy — Python, design, robotics, game dev, business. The main
-                thing I took away? That I liked coding way more than all the
-                other stuff. When I moved to Switzerland about four years ago,
-                that didn't change. If anything, it got sharper.
+                Growing up in Ukraine, I spent my free time at a computer
+                academy — Python, design, robotics, game dev. The main thing I
+                took away? I liked coding way more than all the other stuff.
+                When I moved to Switzerland four years ago, that didn't change.
+                If anything, it got sharper.
               </p>
               <p>
                 I don't learn from tutorials. I learn by building things that
-                actually work. Taught myself Go from scratch by building{" "}
-                <span className="text-text-primary">SongSwap</span> — JWT auth,
-                PostgreSQL, Docker, CI/CD, deployed to my Raspberry Pi, all in
-                about a month. I'm also working through Cisco's cybersecurity
-                curriculum on my own time, because understanding how things
-                break helps you build them better.
+                actually work — taught myself Go from scratch by building{" "}
+                <span className="text-text-primary">SongSwap</span> in about a
+                month. JWT auth, PostgreSQL, Docker, CI/CD, deployed to my
+                Raspberry Pi.
               </p>
               <p>
                 I never really saw myself doing anything else. It's not just
                 what I study — it's what I'd be doing anyway.
-              </p>
-              <p>
-                When I'm not in front of a screen, you'll find me riding my
-                mountain bike, binging TV shows and movies, gaming, traveling
-                with friends, or at a concert throwing my hands in the moshpit.
-                Check out the personal zone below for a glimpse of that side of
-                me.
               </p>
             </div>
           </Card>
