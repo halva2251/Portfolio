@@ -339,7 +339,7 @@ const Dashboard = () => {
                 Building
               </span>
               <span className="text-[0.8125rem] text-text-secondary">
-                StackUnderflow
+                SyncUp (AI Challenge project)
               </span>
             </div>
             <div className="px-6 border-r border-surface-border">
@@ -347,7 +347,7 @@ const Dashboard = () => {
                 Learning
               </span>
               <span className="text-[0.8125rem] text-text-secondary">
-                Go & CI/CD
+                Go & ML model training
               </span>
             </div>
             <div className="px-6">
