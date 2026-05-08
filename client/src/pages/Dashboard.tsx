@@ -77,10 +77,13 @@ const skills = [
 const games = [
   { name: "Death Stranding 1 & 2", note: "peak Kojima" },
   { name: "Red Dead Redemption 1 & 2", note: null },
-  { name: "God of War + Ragnarok", note: null },
-  { name: "Disco Elysium", note: "surprisingly good" },
+  { name: "God of War & Ragnarök", note: null },
+  {
+    name: "Disco Elysium",
+    note: "I just don't wanna be this type of animal anymore",
+  },
   { name: "Bloons TD 6", note: "definitely not addicted" },
-  { name: "The Last of Us 1 & 2", note: null },
+  { name: "Civilization VI", note: "watch it more than I play" },
 ];
 
 const shows = [
@@ -750,7 +753,7 @@ const Dashboard = () => {
                 Gaming
               </h3>
               <p className="text-white/50 text-sm mt-0.5">
-                Kojima, Rockstar, and way too much Overwatch
+                Kojima, Rockstar, and way too much Bloons
               </p>
             </div>
           </div>
