@@ -13,8 +13,8 @@ const Blog = () => (
   <div className="min-h-screen">
     <header className="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-surface-border">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-3 sm:px-4 md:px-6 h-12">
-        <Link to="/" className="font-serif text-xl italic text-text-primary">
-          yen
+        <Link to="/" className="font-display font-extrabold text-base tracking-tight text-text-primary">
+          halva
         </Link>
         <Link
           to="/"
