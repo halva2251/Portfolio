@@ -256,9 +256,9 @@ const Dashboard = () => {
       {/* ── STICKY NAV ── */}
       <header className="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-surface-border">
         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 h-12">
-          <span className="font-display font-extrabold text-base tracking-tight text-text-primary">
+          <Link to="/" className="font-display font-extrabold text-base tracking-tight text-text-primary hover:opacity-70 transition-opacity">
             halva
-          </span>
+          </Link>
           <nav className="flex items-center gap-6">
             <a
               href="#work"
