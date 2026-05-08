@@ -94,16 +94,36 @@ const shows = [
 
 const musicRotation = [
   { artist: "Darko US", album: "DETHMASK 3", note: null },
-  { artist: "Signs of the Swarm", album: "Amongst the Low and Empty", note: null },
+  {
+    artist: "Signs of the Swarm",
+    album: "Amongst the Low and Empty",
+    note: null,
+  },
   { artist: "Boundaries", album: "Your Receding Warmth", note: null },
-  { artist: "Radiohead", album: "In Rainbows", note: "yes, it's not metal, sue me" },
+  {
+    artist: "Radiohead",
+    album: "In Rainbows",
+    note: "yes, it's not metal, sue me",
+  },
   { artist: "Whitechapel", album: "Somatic Defilement", note: "old school" },
 ];
 
 const socials = [
-  { label: "GitHub", url: "https://github.com/halva2251", note: "where the code lives" },
-  { label: "LinkedIn", url: "https://www.linkedin.com/in/yevhenii-sauliak/", note: "the professional one" },
-  { label: "Instagram", url: "https://www.instagram.com/sauliak.yevhenii/", note: "concerts, travel, life" },
+  {
+    label: "GitHub",
+    url: "https://github.com/halva2251",
+    note: "where the code lives",
+  },
+  {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/yevhenii-sauliak/",
+    note: "the professional one",
+  },
+  {
+    label: "Instagram",
+    url: "https://www.instagram.com/sauliak.yevhenii/",
+    note: "concerts, travel, life",
+  },
   { label: "Discord", url: null, note: "nothalva", copyable: true },
 ];
 
@@ -222,15 +242,14 @@ const Dashboard = () => {
   const listeningLabel = tracksLoading
     ? "..."
     : tracks[0]
-    ? tracks[0].name
-    : "—";
+      ? tracks[0].name
+      : "—";
 
   // keep posts import used (referenced for blog link)
   void posts;
 
   return (
     <div className="min-h-screen">
-
       {/* ── STICKY NAV ── */}
       <header className="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-surface-border">
         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 md:px-6 h-12">
@@ -238,16 +257,28 @@ const Dashboard = () => {
             halva
           </span>
           <nav className="flex items-center gap-6">
-            <a href="#work" className="text-xs text-text-muted hover:text-text-secondary transition-colors">
+            <a
+              href="#work"
+              className="text-xs text-text-muted hover:text-text-secondary transition-colors"
+            >
               Work
             </a>
-            <a href="#personal" className="text-xs text-text-muted hover:text-text-secondary transition-colors">
+            <a
+              href="#personal"
+              className="text-xs text-text-muted hover:text-text-secondary transition-colors"
+            >
               Personal
             </a>
-            <Link to="/blog" className="text-xs text-text-muted hover:text-text-secondary transition-colors">
+            <Link
+              to="/blog"
+              className="text-xs text-text-muted hover:text-text-secondary transition-colors"
+            >
               Blog
             </Link>
-            <a href="#contact" className="text-xs text-text-muted hover:text-text-secondary transition-colors">
+            <a
+              href="#contact"
+              className="text-xs text-text-muted hover:text-text-secondary transition-colors"
+            >
               Contact
             </a>
           </nav>
@@ -255,7 +286,6 @@ const Dashboard = () => {
       </header>
 
       <div className="max-w-6xl mx-auto px-4 md:px-6">
-
         {/* ══════════════════════════════════════════
           INTRO
         ══════════════════════════════════════════ */}
@@ -267,8 +297,10 @@ const Dashboard = () => {
             </span>
           </div>
 
-          <h1 className="font-display font-extrabold leading-[1.0] tracking-[-0.03em] text-text-primary mb-4"
-              style={{ fontSize: "clamp(44px, 5.5vw, 72px)" }}>
+          <h1
+            className="font-display font-extrabold leading-[1.0] tracking-[-0.03em] text-text-primary mb-4"
+            style={{ fontSize: "clamp(44px, 5.5vw, 72px)" }}
+          >
             Yevhenii Sauliak
           </h1>
 
@@ -277,8 +309,10 @@ const Dashboard = () => {
             <span className="text-text-secondary">"halva"</span> online
           </p>
 
-          <p className="text-base leading-relaxed font-light max-w-[420px] mb-6"
-             style={{ color: "rgba(255,255,255,0.38)" }}>
+          <p
+            className="text-base leading-relaxed font-light max-w-[420px] mb-6"
+            style={{ color: "rgba(255,255,255,0.38)" }}
+          >
             CS student in Switzerland who builds things to learn how they work.
             Currently into Go, React, and self-deployment.
           </p>
@@ -301,13 +335,17 @@ const Dashboard = () => {
               <span className="block text-[0.625rem] uppercase tracking-[0.09em] text-text-muted mb-1">
                 Building
               </span>
-              <span className="text-[0.8125rem] text-text-secondary">StackUnderflow</span>
+              <span className="text-[0.8125rem] text-text-secondary">
+                StackUnderflow
+              </span>
             </div>
             <div className="px-6 border-r border-surface-border">
               <span className="block text-[0.625rem] uppercase tracking-[0.09em] text-text-muted mb-1">
                 Learning
               </span>
-              <span className="text-[0.8125rem] text-text-secondary">Go & CI/CD</span>
+              <span className="text-[0.8125rem] text-text-secondary">
+                Go & CI/CD
+              </span>
             </div>
             <div className="px-6">
               <span className="block text-[0.625rem] uppercase tracking-[0.09em] text-text-muted mb-1">
@@ -356,20 +394,23 @@ const Dashboard = () => {
           WORK GRID
         ══════════════════════════════════════════ */}
         <div id="work" className="flex flex-col gap-8 pb-12">
-
           {/* ABOUT + LAST.FM */}
           <div>
             <SecLabel>About & Music</SecLabel>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
-
               <Tile>
                 <TileLabel>
-                  {!tracksLoading && tracks[0]?.nowPlaying ? "Now Playing" : "Recently Played"}
+                  {!tracksLoading && tracks[0]?.nowPlaying
+                    ? "Now Playing"
+                    : "Recently Played"}
                 </TileLabel>
                 {tracksLoading ? (
                   <div className="space-y-3">
                     {[...Array(3)].map((_, i) => (
-                      <div key={i} className="flex items-center gap-3 animate-pulse">
+                      <div
+                        key={i}
+                        className="flex items-center gap-3 animate-pulse"
+                      >
                         <div className="w-9 h-9 rounded-lg bg-surface-hover flex-shrink-0" />
                         <div className="flex-1 space-y-1.5">
                           <div className="h-3 bg-surface-hover rounded w-3/4" />
@@ -380,7 +421,7 @@ const Dashboard = () => {
                   </div>
                 ) : tracks.length > 0 ? (
                   <div className="flex flex-col">
-                    {tracks.slice(0, 4).map((track, i) => (
+                    {tracks.slice(0, 5).map((track, i) => (
                       <a
                         key={i}
                         href={track.url}
@@ -413,46 +454,60 @@ const Dashboard = () => {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-text-muted text-sm">Couldn't load tracks</p>
+                  <p className="text-text-muted text-sm">
+                    Couldn't load tracks
+                  </p>
                 )}
-                <div className="mt-3 pt-3 border-t border-surface-border">
-                  <span className="font-mono text-[0.5625rem] text-text-muted">via Last.fm</span>
-                </div>
               </Tile>
 
               <Tile className="md:col-span-2">
                 <TileLabel>About Me</TileLabel>
-                <div className="space-y-3 text-[0.8125rem] leading-relaxed font-light"
-                     style={{ color: "rgba(255,255,255,0.4)" }}>
+                <div
+                  className="space-y-3 text-[0.8125rem] leading-relaxed font-light"
+                  style={{ color: "rgba(255,255,255,0.4)" }}
+                >
                   <p>
-                    I've been glued to computers for as long as I can remember. My mom loves telling the
-                    story of walking into my room when I was around eight and finding me fully locked in,
-                    building something on screen. She asked what I was doing. My response:{" "}
-                    <em className="not-italic" style={{ color: "rgba(255,255,255,0.7)" }}>
+                    I've been glued to computers for as long as I can remember.
+                    My mom loves telling the story of walking into my room when
+                    I was around eight and finding me fully locked in, building
+                    something on screen. She asked what I was doing. My
+                    response:{" "}
+                    <em
+                      className="not-italic"
+                      style={{ color: "rgba(255,255,255,0.7)" }}
+                    >
                       "You won't get it, I'm programming a clock."
                     </em>{" "}
-                    I don't even remember this, but apparently that was the vibe from day one.
+                    I don't even remember this, but apparently that was the vibe
+                    from day one.
                   </p>
                   <p>
-                    Growing up in Ukraine, I spent my free time at a computer academy — Python, design,
-                    robotics, game dev. The main thing I took away? I liked coding way more than all the
-                    other stuff. When I moved to Switzerland four years ago, that didn't change. If
-                    anything, it got sharper.
+                    Growing up in Ukraine, I spent my free time at a computer
+                    academy — Python, design, robotics, game dev. The main thing
+                    I took away? I liked coding way more than all the other
+                    stuff. When I moved to Switzerland four years ago, that
+                    didn't change. If anything, it got sharper.
                   </p>
                   <p>
-                    I don't learn from tutorials. I learn by building things that actually work — taught
-                    myself Go from scratch by building{" "}
-                    <span className="text-text-secondary">SongSwap</span> in about a month. JWT auth,
-                    PostgreSQL, Docker, CI/CD, deployed to my Raspberry Pi.
+                    I don't learn from tutorials. I learn by building things
+                    that actually work — taught myself Go from scratch by
+                    building{" "}
+                    <span className="text-text-secondary">SongSwap</span> in
+                    about a month. JWT auth, PostgreSQL, Docker, CI/CD, deployed
+                    to my Raspberry Pi.
                   </p>
                   <p>
-                    I never really saw myself doing anything else. It's not just what I study — it's
-                    what I'd be doing anyway.
+                    I never really saw myself doing anything else. It's not just
+                    what I study — it's what I'd be doing anyway.
                   </p>
                 </div>
                 <div className="mt-4 pt-4 border-t border-surface-border flex items-center justify-between">
-                  <span className="text-[0.6875rem] text-text-muted">IMS Baden — CS · Berufsmatura + EFZ Informatiker</span>
-                  <span className="text-[0.6875rem] text-text-muted font-mono">2024 – 2028</span>
+                  <span className="text-[0.6875rem] text-text-muted">
+                    IMS Baden — Berufsmatura + EFZ Informatiker
+                  </span>
+                  <span className="text-[0.6875rem] text-text-muted font-mono">
+                    2024 – 2028
+                  </span>
                 </div>
               </Tile>
             </div>
@@ -481,8 +536,10 @@ const Dashboard = () => {
                       </span>
                     )}
                   </div>
-                  <p className="text-[0.8125rem] leading-relaxed mb-4 flex-1 font-light"
-                     style={{ color: "rgba(255,255,255,0.38)" }}>
+                  <p
+                    className="text-[0.8125rem] leading-relaxed mb-4 flex-1 font-light"
+                    style={{ color: "rgba(255,255,255,0.38)" }}
+                  >
                     {p.description}
                   </p>
                   <div className="flex flex-wrap items-center gap-1.5 mt-auto">
@@ -526,10 +583,15 @@ const Dashboard = () => {
                         {p.type}
                       </span>
                     </div>
-                    <p className="text-xs text-text-muted leading-relaxed flex-1">{p.description}</p>
+                    <p className="text-xs text-text-muted leading-relaxed flex-1">
+                      {p.description}
+                    </p>
                     <div className="flex items-center gap-2 flex-shrink-0 mt-1 sm:mt-0">
                       {p.tech.map((t, j) => (
-                        <span key={j} className="font-mono text-[0.5625rem] text-text-muted">
+                        <span
+                          key={j}
+                          className="font-mono text-[0.5625rem] text-text-muted"
+                        >
                           {t}
                         </span>
                       ))}
@@ -554,8 +616,10 @@ const Dashboard = () => {
         {/* ══════════════════════════════════════════
           PERSONAL GRID
         ══════════════════════════════════════════ */}
-        <div id="personal" className="grid grid-cols-1 md:grid-cols-3 gap-2.5 pb-12">
-
+        <div
+          id="personal"
+          className="grid grid-cols-1 md:grid-cols-3 gap-2.5 pb-12"
+        >
           {/* CONCERTS */}
           <div className="relative rounded-[10px] overflow-hidden border border-surface-border min-h-[220px] group">
             <video
@@ -568,18 +632,27 @@ const Dashboard = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="relative h-full flex flex-col justify-end p-5">
-              <h3 className="font-display font-bold text-base text-white">Concerts</h3>
-              <p className="text-white/50 text-sm mt-0.5">Somewhere in the moshpit</p>
+              <h3 className="font-display font-bold text-base text-white">
+                Concerts
+              </h3>
+              <p className="text-white/50 text-sm mt-0.5">
+                Somewhere in the moshpit
+              </p>
             </div>
           </div>
 
           {/* TRAVEL */}
           <Tile>
             <TileLabel>Traveling</TileLabel>
-            <p className="text-text-secondary text-sm mb-3">Most recently: Hong Kong</p>
+            <p className="text-text-secondary text-sm mb-3">
+              Most recently: Hong Kong
+            </p>
             <div className="grid grid-cols-2 gap-1.5">
               {travelGallery.map((src, i) => (
-                <div key={i} className="relative rounded-lg overflow-hidden aspect-square">
+                <div
+                  key={i}
+                  className="relative rounded-lg overflow-hidden aspect-square"
+                >
                   <img
                     src={src}
                     alt={`Travel photo ${i + 1}`}
@@ -623,7 +696,9 @@ const Dashboard = () => {
                 {formStatus === "sending" ? "Sending..." : "Send"}
               </button>
               {formStatus === "success" && (
-                <p className="text-accent text-xs">Sent! I'll get back to you.</p>
+                <p className="text-accent text-xs">
+                  Sent! I'll get back to you.
+                </p>
               )}
               {formStatus === "error" && (
                 <p className="text-red-400 text-xs">Something went wrong.</p>
@@ -640,7 +715,9 @@ const Dashboard = () => {
                     <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">
                       {s.label}
                     </span>
-                    <span className="text-xs text-text-muted">{copied ? "copied!" : s.note}</span>
+                    <span className="text-xs text-text-muted">
+                      {copied ? "copied!" : s.note}
+                    </span>
                   </button>
                 ) : (
                   <a
@@ -669,7 +746,9 @@ const Dashboard = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="relative h-full flex flex-col justify-end p-5">
-              <h3 className="font-display font-bold text-base text-white">Gaming</h3>
+              <h3 className="font-display font-bold text-base text-white">
+                Gaming
+              </h3>
               <p className="text-white/50 text-sm mt-0.5">
                 Kojima, Rockstar, and way too much Overwatch
               </p>
@@ -687,7 +766,9 @@ const Dashboard = () => {
                 >
                   <span className="text-text-secondary">{g.name}</span>
                   {g.note && (
-                    <span className="text-text-muted italic text-xs ml-2">({g.note})</span>
+                    <span className="text-text-muted italic text-xs ml-2">
+                      ({g.note})
+                    </span>
                   )}
                 </div>
               ))}
@@ -705,7 +786,9 @@ const Dashboard = () => {
                 >
                   <span className="text-text-secondary">{s.name}</span>
                   {s.note && (
-                    <span className="text-text-muted italic text-xs ml-2">({s.note})</span>
+                    <span className="text-text-muted italic text-xs ml-2">
+                      ({s.note})
+                    </span>
                   )}
                 </div>
               ))}
@@ -724,7 +807,9 @@ const Dashboard = () => {
                   <span className="text-text-secondary">{m.artist}</span>
                   <span className="text-text-muted"> — {m.album}</span>
                   {m.note && (
-                    <span className="text-text-muted italic text-xs ml-2">({m.note})</span>
+                    <span className="text-text-muted italic text-xs ml-2">
+                      ({m.note})
+                    </span>
                   )}
                 </div>
               ))}
@@ -734,10 +819,13 @@ const Dashboard = () => {
 
         {/* ═══ FOOTER ═══ */}
         <div className="pt-4 pb-6 border-t border-surface-border flex justify-between items-center">
-          <span className="text-text-muted text-xs">&copy; 2026 Yen Sauliak</span>
-          <span className="font-mono text-text-muted text-[0.6rem]">built with dedication</span>
+          <span className="text-text-muted text-xs">
+            &copy; 2026 Yen Sauliak
+          </span>
+          <span className="font-mono text-text-muted text-[0.6rem]">
+            built with dedication
+          </span>
         </div>
-
       </div>
     </div>
   );
