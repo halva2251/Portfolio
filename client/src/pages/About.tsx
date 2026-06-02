@@ -53,7 +53,7 @@ const About = () => {
           <div className="py-5 border-b border-surface-border">
             <div className="flex items-baseline justify-between mb-1.5">
               <span className="text-text-primary font-medium">
-                IMS Baden — CS Student
+                IMS Baden, CS Student
               </span>
               <span className="text-xs text-text-muted">2024 – 2028</span>
             </div>
@@ -68,15 +68,14 @@ const About = () => {
           <div className="py-5 border-b border-surface-border">
             <div className="flex items-baseline justify-between mb-1.5">
               <span className="text-text-primary font-medium">
-                Software Engineer at ITConsulting24 — Praktikum
+                Software Engineer at ITConsulting24 (Praktikum)
               </span>
               <span className="text-xs text-text-muted">3 months, 2023</span>
             </div>
             <p className="text-text-secondary text-sm leading-relaxed">
-              Got hands-on professional experience early, worked as a software
-              engineer intern shortly after arriving in Switzerland. Developed
-              an employee management and communication website using Python and
-              Django.
+              Interned as a software engineer about a year after moving to
+              Switzerland. Built an employee management and communication site
+              in Python and Django.
             </p>
           </div>
 
@@ -114,7 +113,7 @@ const About = () => {
         <p className="text-text-secondary leading-relaxed">
           I'm also attending an optional robotics class at school (it's
           genuinely fun), and next up is a module on public cloud infrastructure
-          and CI/CD pipelines. Always expanding the toolkit.
+          and CI/CD pipelines.
         </p>
       </section>
 

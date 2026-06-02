@@ -9,7 +9,7 @@ const featuredProjects = [
   {
     name: "SongSwap",
     description:
-      "The project I'm most proud of. I wanted to learn Go so I built an entire full-stack app from scratch — a music discovery platform where you submit a song and get one back from a stranger. Themed chains, mood context, JWT auth, PostgreSQL, rate limiting, Docker Containers, Dev Containers, 26 passing tests, CI/CD with GitHub Actions, and deployed to my Raspberry Pi. All in about a month, with zero prior Go experience.",
+      "The project I'm most proud of. I wanted to learn Go so I built an entire full-stack app from scratch: a music discovery platform where you submit a song and get one back from a stranger. Themed chains, mood context, JWT auth, PostgreSQL, rate limiting, Docker Containers, Dev Containers, 26 passing tests, CI/CD with GitHub Actions, and deployed to my Raspberry Pi. All in about a month, with zero prior Go experience.",
     tech: ["Go", "React", "TypeScript", "PostgreSQL", "Docker", "AWS"],
     github: "https://github.com/halva2251/songswap",
     type: "Personal",
@@ -53,7 +53,7 @@ const otherProjects = [
   {
     name: "News Digest",
     description:
-      "Automated news scraper that filters by keywords and delivers curated email digests.",
+      "News scraper that filters by keyword and emails a daily digest.",
     tech: ["Python", "PowerShell"],
     github: "https://github.com/halva2251/news-digest",
     type: "School",
@@ -300,7 +300,7 @@ const Dashboard = () => {
           <div className="flex items-center gap-2 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-80" />
             <span className="text-[0.75rem] uppercase tracking-[0.06em] text-text-muted">
-              Open to apprenticeships — 2027
+              Open to apprenticeships from 2027
             </span>
           </div>
 
@@ -490,30 +490,30 @@ const Dashboard = () => {
                   </p>
                   <p>
                     Growing up in Ukraine, I spent my free time at a computer
-                    academy — Python, design, robotics, game dev. The main thing
+                    academy: Python, design, robotics, game dev. The main thing
                     I took away? I liked coding way more than all the other
                     stuff. When I moved to Switzerland four years ago, that
                     didn't change. If anything, it got sharper.
                   </p>
                   <p>
                     I don't learn from tutorials. I learn by building things
-                    that actually work — taught myself Go from scratch by
+                    that actually work. Taught myself Go from scratch by
                     building{" "}
                     <span className="text-text-secondary">SongSwap</span> in
                     about a month. JWT auth, PostgreSQL, Docker, CI/CD, deployed
                     to my Raspberry Pi.
                   </p>
                   <p>
-                    I never really saw myself doing anything else. It's not just
-                    what I study — it's what I'd be doing anyway.
+                    I never really saw myself doing anything else. It's what I
+                    study and what I'd be doing either way.
                   </p>
                 </div>
                 <div className="mt-4 pt-4 border-t border-surface-border flex items-center justify-between">
                   <span className="text-[0.6875rem] text-text-muted">
-                    IMS Baden — Berufsmatura + EFZ Informatiker
+                    IMS Baden, Berufsmatura + EFZ Informatiker
                   </span>
                   <span className="text-[0.6875rem] text-text-muted font-mono">
-                    2024 – 2028
+                    2024-2028
                   </span>
                 </div>
               </Tile>
@@ -812,7 +812,7 @@ const Dashboard = () => {
                   className="py-2 border-b border-surface-border/40 last:border-0 text-sm"
                 >
                   <span className="text-text-secondary">{m.artist}</span>
-                  <span className="text-text-muted"> — {m.album}</span>
+                  <span className="text-text-muted">, {m.album}</span>
                   {m.note && (
                     <span className="text-text-muted italic text-xs ml-2">
                       ({m.note})

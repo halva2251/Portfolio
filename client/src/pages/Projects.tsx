@@ -2,7 +2,7 @@ const projects = [
   {
     name: "SongSwap",
     description:
-      "Full-stack music discovery app built from scratch to learn Go — submit a song, get one back from a stranger. Features themed chains, mood context, JWT auth, and PostgreSQL.",
+      "Full-stack music discovery app I built to learn Go. Submit a song, get one back from a stranger. Themed chains, mood context, JWT auth, and PostgreSQL.",
     tech: ["Go", "React", "TypeScript", "PostgreSQL", "JWT"],
     github: "https://github.com/halva2251/songswap",
     type: "Personal",
@@ -19,7 +19,7 @@ const projects = [
   {
     name: "Budget Buddy",
     description:
-      "Budget tracking web app helping users manage spending and savings goals.",
+      "Budget tracker for logging spending and setting savings goals.",
     tech: ["C#", ".NET MVC"],
     github: "https://github.com/halva2251/BudgetAssistent_.NET_MVC",
     type: "School",
@@ -27,7 +27,7 @@ const projects = [
   {
     name: "News Digest",
     description:
-      "Automated news scraper that filters articles by keywords and delivers curated digests via email.",
+      "News scraper that filters articles by keyword and emails a daily digest.",
     tech: ["Python", "PowerShell"],
     github: "https://github.com/halva2251/news-digest",
     type: "School",
@@ -39,7 +39,7 @@ const Projects = () => {
     <div>
       <h1 className="font-serif text-5xl italic mb-2">Projects</h1>
       <p className="text-text-muted text-sm mb-12">
-        Things I've built — from side projects to hackathons.
+        Side projects, hackathons, and school work.
       </p>
 
       <div className="flex flex-col">

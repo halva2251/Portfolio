@@ -16,7 +16,7 @@ const Home = () => {
       {/* Availability */}
       <p className="text-sm text-text-muted mb-8">
         <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500 mr-2 relative top-[-1px]" />
-        Open to apprenticeships — 2027
+        Open to apprenticeships from 2027
       </p>
 
       {/* Name */}
